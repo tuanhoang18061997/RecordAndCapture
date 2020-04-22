@@ -193,7 +193,7 @@ namespace RecordAndCapture
                         else
                         {
                             CopyBox.Image.Save(folderName + @"\" + "IMG_" + DateTime.Now.ToString("ddMMyyyy_HHmmss") + ".jpg", ImageFormat.Jpeg);
-                            SweetAlert.Show("Thông báo", "Lưu thành công!");
+                            MessageBox.Show("Lưu thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                     }
                     else
@@ -208,7 +208,7 @@ namespace RecordAndCapture
 
                             CopyBox.Image.Save(folderName + @"\" + "IMG" + DateTime.Now.ToString("ddMMyyyy_HHmmss") + ".jpg", ImageFormat.Jpeg);
 
-                            SweetAlert.Show("Thông báo", "Lưu thành công!");
+                            MessageBox.Show("Lưu thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                     }
                 }
@@ -310,7 +310,7 @@ namespace RecordAndCapture
                             FileWriter.WriteVideoFrame(video);
                             btnStop.BackColor = Color.Red;
                             btnStop.Text = "Lưu";
-                            MessageBox.Show("Lưu thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                           
 
                             //}
                         }
@@ -339,13 +339,14 @@ namespace RecordAndCapture
                     if (FinalFrame == null) { return; }
                     if (FinalFrame.IsRunning)
                     {
-                        FileWriter.Close();
+
+                        FileWriter.Close(); //ngừng quay
                         CameraBox.Image = null;
                     }
                 }
                 else
                 {
-                    this.FinalFrame.Stop();
+                    this.FinalFrame.Stop(); // tắt máy ảnh 
                     FileWriter.Close();
                     CameraBox.Image = null;
                 }

@@ -30,47 +30,10 @@ namespace RecordAndCapture
 
             listImage.AutoResizeColumn(0, ColumnHeaderAutoResizeStyle.HeaderSize);
         }
-        //private void populate()
-        //{
-        //    using (OpenFileDialog ofd = new OpenFileDialog() { Multiselect = true, ValidateNames = true, Filter = "JPG|*.jpg|JPEG|*.jpeg|PNG|*.png" })
-        //    {
-        //        if (ofd.ShowDialog() == DialogResult.OK)
-        //        {
-        //            //List<MediaFile> imageList = new List<MediaFile>();
-        //            string[] files = ofd.FileNames;
-
-        //            ImageList imgs = new ImageList();
-        //            imgs.ImageSize = new Size(50, 50);
-        //            imgs.ColorDepth = ColorDepth.Depth32Bit;
-
-        //            foreach (string fileName in files)
-        //            {
-        //                listImage.Items.Add(Image.FromFile(fileName));
-        //                //FileInfo fi = new FileInfo(fileName);
-        //                //WebClient w = new WebClient();
-        //                ////byte[] imageByte = w.DownloadData(imageList[fileName]);
-        //                //MemoryStream stream = new MemoryStream(fi);
-
-        //                //Image im = Image.FromStream(stream);
-        //                //imgs.Images.Add(im);
-
-        //                //Uri uri = new Uri(imageList[i]);
-
-        //                //listImage.Items.Add(uri.Segments.Last(), fi);
-
-        //            }
-        //            for (int i = 0; i < imageList.Count; i++)
-        //            {
-
-        //            }
-        //            listImage.LargeImageList = imgs;
-
-        //        }
-        //    }
-        //}
 
         List<string> fileNames = new List<string>();
 
+        #region button open file
         private void btnOpenImage_Click(object sender, EventArgs e)
         {
             fileNames.Clear();
@@ -132,7 +95,9 @@ namespace RecordAndCapture
                 }
             }
         }
+        #endregion
 
+        #region selected image in listview
         private void listImage_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -153,9 +118,11 @@ namespace RecordAndCapture
             {
 
             }
-
         }
 
+        #endregion
+
+        #region button remove
         private void removeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             for (int i = listImage.SelectedItems.Count - 1; i >= 0; i--)
@@ -173,7 +140,9 @@ namespace RecordAndCapture
             }
 
         }
+        #endregion
 
+        #region Rotate
         private void trackBar1_Scroll(object sender, EventArgs e)
         {
             try
@@ -193,7 +162,9 @@ namespace RecordAndCapture
                 MessageBox.Show("There was an error." + "Check the path to the bitmap.");
             }
         }
+        #endregion
 
+        #region button Delete
         private void btnDeleteFile_Click(object sender, EventArgs e)
         {
 
@@ -221,7 +192,6 @@ namespace RecordAndCapture
                 }
             }
         }
+        #endregion
     }
 }
-// parentDir = System.IO.Path.GetDirectoryName(file);
-// listImage.Items.Add(file);

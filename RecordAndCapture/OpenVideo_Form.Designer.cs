@@ -48,19 +48,19 @@
             // axWindowsMediaPlayer
             // 
             this.axWindowsMediaPlayer.Enabled = true;
-            this.axWindowsMediaPlayer.Location = new System.Drawing.Point(13, 4);
+            this.axWindowsMediaPlayer.Location = new System.Drawing.Point(271, 12);
             this.axWindowsMediaPlayer.Name = "axWindowsMediaPlayer";
             this.axWindowsMediaPlayer.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer.OcxState")));
-            this.axWindowsMediaPlayer.Size = new System.Drawing.Size(392, 375);
+            this.axWindowsMediaPlayer.Size = new System.Drawing.Size(392, 346);
             this.axWindowsMediaPlayer.TabIndex = 0;
             // 
             // listFile
             // 
             this.listFile.ContextMenuStrip = this.contextMenuStrip1;
             this.listFile.FormattingEnabled = true;
-            this.listFile.Location = new System.Drawing.Point(4, 19);
+            this.listFile.Location = new System.Drawing.Point(6, 19);
             this.listFile.Name = "listFile";
-            this.listFile.Size = new System.Drawing.Size(205, 134);
+            this.listFile.Size = new System.Drawing.Size(205, 212);
             this.listFile.TabIndex = 1;
             this.listFile.SelectedIndexChanged += new System.EventHandler(this.listFile_SelectedIndexChanged);
             // 
@@ -81,7 +81,7 @@
             // btnOpenFile
             // 
             this.btnOpenFile.AutoSize = true;
-            this.btnOpenFile.Location = new System.Drawing.Point(134, 19);
+            this.btnOpenFile.Location = new System.Drawing.Point(9, 19);
             this.btnOpenFile.Name = "btnOpenFile";
             this.btnOpenFile.Size = new System.Drawing.Size(75, 23);
             this.btnOpenFile.TabIndex = 2;
@@ -91,7 +91,7 @@
             // 
             // btnDeleteVideo
             // 
-            this.btnDeleteVideo.Location = new System.Drawing.Point(6, 19);
+            this.btnDeleteVideo.Location = new System.Drawing.Point(134, 19);
             this.btnDeleteVideo.Name = "btnDeleteVideo";
             this.btnDeleteVideo.Size = new System.Drawing.Size(75, 23);
             this.btnDeleteVideo.TabIndex = 3;
@@ -114,9 +114,9 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.listFile);
-            this.groupBox1.Location = new System.Drawing.Point(411, 4);
+            this.groupBox1.Location = new System.Drawing.Point(12, 114);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(215, 161);
+            this.groupBox1.Size = new System.Drawing.Size(221, 244);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Danh sách Video";
@@ -126,9 +126,9 @@
             this.groupBox2.Controls.Add(this.btnDeleteVideo);
             this.groupBox2.Controls.Add(this.btnOpenFile);
             this.groupBox2.Controls.Add(this.lblPathFileVideo);
-            this.groupBox2.Location = new System.Drawing.Point(411, 171);
+            this.groupBox2.Location = new System.Drawing.Point(12, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(215, 87);
+            this.groupBox2.Size = new System.Drawing.Size(221, 87);
             this.groupBox2.TabIndex = 7;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Chức năng";
@@ -137,7 +137,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(634, 391);
+            this.ClientSize = new System.Drawing.Size(677, 364);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.axWindowsMediaPlayer);
