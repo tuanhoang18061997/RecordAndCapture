@@ -15,6 +15,7 @@ using AForge.Video.DirectShow;
 using AForge.Video.FFMPEG;
 using AForge.Imaging.Filters;
 using System.Drawing.Imaging;
+using AlertBox;
 
 namespace RecordAndCapture
 {
@@ -132,10 +133,10 @@ namespace RecordAndCapture
 
             if (TrackingImage_Box.Image != null || ReviewPicture_Box_.Image != null)
             {
-                TrackingImage_Box.Image.Dispose();
+                
                 TrackingImage_Box.Image = null;
 
-                ReviewPicture_Box_.Image.Dispose();
+                
                 ReviewPicture_Box_.Image = null;
             }
 
@@ -168,9 +169,9 @@ namespace RecordAndCapture
         private void btnDeleteFile_Click(object sender, EventArgs e)
         {
 
-            if (ReviewPicture_Box_.Image != null && TrackingImage_Box.Image != null)
+            if (ReviewPicture_Box_.Image != null || TrackingImage_Box.Image != null)
             {
-                MessageBox.Show("Xóa ảnh trong 2 khung trước");
+                AlertBoxs.Show("Hệ Thống", "Xóa các ảnh khỏi khung trước!", (int)AlertBoxs.TypeAlert.AlertWarning);
             }
             else
             {
@@ -186,6 +187,7 @@ namespace RecordAndCapture
                     {
                         File.Delete(lblPathFileImage.Text);
                         lblPathFileImage.Text = "";
+                        AlertBoxs.Show("Thông báo", "Xóa thành công!", (int)AlertBoxs.TypeAlert.AlertSuccess);
 
                     }
 

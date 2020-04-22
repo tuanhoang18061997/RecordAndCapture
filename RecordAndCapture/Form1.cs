@@ -18,6 +18,7 @@ using AForge.Imaging.Filters;
 using SweetAlertSharp;
 using Tulpep.NotificationWindow;
 using System.Windows.Controls;
+using AlertBox;
 
 namespace RecordAndCapture
 {
@@ -156,7 +157,7 @@ namespace RecordAndCapture
 
             if (CameraBox.Image == null)
             {
-                MessageBox.Show("Vui lòng bật máy ảnh!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                AlertBoxs.Show("Hệ Thống", "Vui lòng bật máy ảnh!", (int)AlertBoxs.TypeAlert.AlertWarning);
             }
             else
             {
@@ -176,24 +177,22 @@ namespace RecordAndCapture
             {
                 if (txtPatientID == null)
                 {
-                    MessageBox.Show("Vui lòng nhập Patient ID!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    AlertBoxs.Show("Thông báo", "Vui lòng nhập PatientID", (int)AlertBoxs.TypeAlert.AlertWarning);
                 }
                 else
                 {
                     if (!Directory.Exists(folderName) && txtPatientID.Text != null)
                     {
-
                         System.IO.Directory.CreateDirectory(folderName);
-
 
                         if (CopyBox.Image == null)
                         {
-                            MessageBox.Show("Không có ảnh để lưu!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            AlertBoxs.Show("Thông báo", "Không có ảnh để lưu", (int)AlertBoxs.TypeAlert.AlertInfo);
                         }
                         else
                         {
                             CopyBox.Image.Save(folderName + @"\" + "IMG_" + DateTime.Now.ToString("ddMMyyyy_HHmmss") + ".jpg", ImageFormat.Jpeg);
-                            MessageBox.Show("Lưu thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            AlertBoxs.Show("Thông báo", "Lưu thành công", (int)AlertBoxs.TypeAlert.AlertSuccess);
                         }
                     }
                     else
@@ -201,14 +200,15 @@ namespace RecordAndCapture
 
                         if (CopyBox.Image == null)
                         {
-                            MessageBox.Show("Không có ảnh để lưu!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            AlertBoxs.Show("Thông báo", "Không có ảnh để lưu", (int)AlertBoxs.TypeAlert.AlertInfo);
                         }
                         else
                         {
 
                             CopyBox.Image.Save(folderName + @"\" + "IMG" + DateTime.Now.ToString("ddMMyyyy_HHmmss") + ".jpg", ImageFormat.Jpeg);
 
-                            MessageBox.Show("Lưu thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            //MessageBox.Show("Lưu thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            AlertBoxs.Show("Thông báo", "Lưu thành công", (int)AlertBoxs.TypeAlert.AlertSuccess);
                         }
                     }
                 }
@@ -216,7 +216,7 @@ namespace RecordAndCapture
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                AlertBoxs.Show("Lỗi", ex.Message, (int)AlertBoxs.TypeAlert.AlertError);
             }
         }
 
@@ -257,13 +257,13 @@ namespace RecordAndCapture
 
                     if (CameraBox.Image == null)
                     {
-                        MessageBox.Show("Vui lòng bật máy ảnh!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        AlertBoxs.Show("Hệ Thống", "Vui lòng bật máy ảnh!", (int)AlertBoxs.TypeAlert.AlertWarning);
                     }
                     else
                     {
                         if (btnStop.Text == "Lưu")
                         {
-                            MessageBox.Show("Vui lòng lưu video đang quay trước khi thao tác quay video tiếp theo!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            AlertBoxs.Show("Hệ Thống", "Hãy -LƯU- video trước khi thao tác tiếp!", (int)AlertBoxs.TypeAlert.AlertWarning);
                         }
                         else
                         {
@@ -279,7 +279,7 @@ namespace RecordAndCapture
                             FileWriter.WriteVideoFrame(video);
                             btnStop.BackColor = Color.Red;
                             btnStop.Text = "Lưu";
-                           
+
                             //}
                         }
                     }
@@ -288,13 +288,13 @@ namespace RecordAndCapture
                 {
                     if (CameraBox.Image == null)
                     {
-                        MessageBox.Show("Vui lòng bật máy ảnh!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        AlertBoxs.Show("Hệ Thống", "Vui lòng bật máy ảnh!", (int)AlertBoxs.TypeAlert.AlertWarning);
                     }
                     else
                     {
                         if (btnStop.Text == "Lưu")
                         {
-                            MessageBox.Show("Vui lòng lưu video đang quay trước khi thao tác quay video tiếp theo!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            AlertBoxs.Show("Hệ Thống", "Hãy -LƯU- video trước khi thao tác tiếp!", (int)AlertBoxs.TypeAlert.AlertWarning);
                         }
                         else
                         {
@@ -310,7 +310,7 @@ namespace RecordAndCapture
                             FileWriter.WriteVideoFrame(video);
                             btnStop.BackColor = Color.Red;
                             btnStop.Text = "Lưu";
-                           
+
 
                             //}
                         }
@@ -320,7 +320,7 @@ namespace RecordAndCapture
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Record", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                AlertBoxs.Show("Lỗi Record", ex.Message, (int)AlertBoxs.TypeAlert.AlertError);
             }
         }
 
@@ -333,7 +333,7 @@ namespace RecordAndCapture
             {
                 if (btnStop.Text == "Lưu")
                 {
-                    MessageBox.Show("Lưu thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    AlertBoxs.Show("Thông báo", "Lưu thành công", (int)AlertBoxs.TypeAlert.AlertSuccess);
                     btnStop.Text = "Dừng";
                     btnStop.BackColor = Color.Empty;
                     if (FinalFrame == null) { return; }
@@ -353,7 +353,7 @@ namespace RecordAndCapture
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Stop Video", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                AlertBoxs.Show("Dừng Video", ex.Message, (int)AlertBoxs.TypeAlert.AlertError);
             }
 
         }
