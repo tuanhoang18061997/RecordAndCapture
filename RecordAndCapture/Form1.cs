@@ -1,24 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+﻿using AForge.Video;
+using AForge.Video.DirectShow;
+using AForge.Video.FFMPEG;
+using AlertBox;
+using System;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Controls.Primitives;
 using System.Windows.Forms;
-using AForge;
-using AForge.Video;
-using AForge.Video.DirectShow;
-using AForge.Video.FFMPEG;
-using AForge.Imaging.Filters;
-using SweetAlertSharp;
-using Tulpep.NotificationWindow;
-using System.Windows.Controls;
-using AlertBox;
 
 namespace RecordAndCapture
 {
@@ -267,6 +255,7 @@ namespace RecordAndCapture
                         }
                         else
                         {
+                            System.Threading.Thread.Sleep(500);
                             //saveAvi = new SaveFileDialog();
                             //saveAvi.Filter = "Mp4 Files (*.mp4)|*.mp4";
 
@@ -298,6 +287,7 @@ namespace RecordAndCapture
                         }
                         else
                         {
+                            System.Threading.Thread.Sleep(500);
                             //saveAvi = new SaveFileDialog();
                             //saveAvi.Filter = "Mp4 Files (*.mp4)|*.mp4";
 
@@ -310,8 +300,6 @@ namespace RecordAndCapture
                             FileWriter.WriteVideoFrame(video);
                             btnStop.BackColor = Color.Red;
                             btnStop.Text = "Lưu";
-
-
                             //}
                         }
                     }
